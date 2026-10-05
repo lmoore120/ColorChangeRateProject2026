@@ -3,6 +3,6 @@ This is the first part of the process.
 extract_frames.py takes stills from a video. It takes the sharpest frame within 0.5 seconds of the desired time stamp.
 
 review_frames.py is a way to look at every frame, evaluate whether it fits the criteria for color analysis, and select a new frame by scrubbing through the video 
-  or reject the frame entirely if it is unsuitable. This saves the new time stamps of each frame and carries them forward in the process. 
+  or reject the frame entirely if it is unsuitable. This saves the new time stamps of each frame and carries them forward in the process. If an entire video is       unsuitable, it writes this in a file called rejected_videos.csv.
 
 frame_sheets.py is a way to look at all the frames of a fish side by side after reviewing them.
