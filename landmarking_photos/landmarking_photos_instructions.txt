@@ -1,1 +1,62 @@
+Landmarking Photos:
+What you are doing
+You will mark 43 points around the outline of a fish in each still frame, so the color of the same body regions can be compared between fish and over time.
+
+The work for each video goes like this:
+1. Open the landmarking window on a folder of frames.
+2. Type the fish's label
+3. Click the 7 fixed landmarks (snout, fins, tail) on the fish if not already selected.
+4. Press SPACE and the tool places the other 36 points along the outline.
+5. Check that the color standard is correct, fix it if it is wrong.
+6. Check that the scale bar has been properly identified
+7. Check the fish's outline, fix anything that is off, then press ENTER for the next frame.
+
+The tool saves these files as you go:
+• Landmarks\<frame>_LM.TPS: the 43 points for each frame.
+• Landmarks_calib\<frame>_calib_LM.TPS: the 6 colour-standard patches for each frame.
+• landmarks.csv: one row per frame, with the fish ID, whether the frame is usable, and how the colour standard was found.
+• debug_frames\: a picture of each frame with its points drawn on, for checking.
+
+One-time setup
+You need Python, VS Code and two Python packages, and you only do this once per computer. These instructions are for Windows.
+    1. Install Python from python.org. On the first screen of the installer, tick Add python.exe to PATH before clicking Install. If you miss this, the commands below will not work.
+    2. Install VS Code from code.visualstudio.com and open it.
+    3. In VS Code, click the square icon on the left (Extensions), search for Python, and install the one published by Microsoft.
+    4. Open the terminal inside VS Code (the next section shows how) and install the two packages the tool uses:
+    python -m pip install opencv-python numpy
+    5. Check that everything installed:
+    python --version
+    python -c "import cv2, numpy; print('ready')"
+    The second command should print ready. If it prints an error instead, the install in step 4 did not finish; run it again and read the last lines for the cause.
+    The progress-tracking scripts (autofill_video_map.py and landmark_tracker.py) need no extra packages.
+
+
+Opening VS Code and the terminal
+Every command in this guide is typed into the VS Code terminal, and it must be opened inside the files folder, the folder that contains find_fish_and_landmarks.py.
+    1. In VS Code choose File > Open Folder, pick the files folder, and click Select Folder. If asked whether you trust the authors, click Yes.
+    2. Choose Terminal > New Terminal (or press Ctrl + backtick). A panel opens at the bottom of the window.
+    3. Look at the last line in that panel. It is called the prompt and should end with files>, for example PS C:\Users\you\...\files>. That tells you the terminal is in the right folder.
+    4. Check by typing this and pressing Enter. You should see find_fish_and_landmarks.py in the list:
+    dir
+
+
+Running the script
+  1. With the terminal open in the files folder, run this one command. Direct the first path to your own folder, and the second path (after --out) to a new folder where the landmarks will be saved. The program opens every frame that is not yet done, one after another:
+    python photo_find_fish_and_landmarks.py folder\frames --out folder\landmarks
+
+  2. The terminal prints a line for each frame, such as --- 3/10: <frame name> ---, and a window opens. If you cannot see the window, look for it in the Windows taskbar, because it can open behind VS Code.
+
+The window has four parts:
+• Buttons across the top. Each one has its keyboard shortcut in the corner, and you can click them with a mouse or tap them on a touchscreen.
+• A progress header above the buttons: the video name, the fish label, "frame 3 of 10", "video 2 of 57" and a progress bar.
+• A "THIS FRAME" checklist at the top right. It lists what is still to do on the current frame (see the next section).
+• A message bar along the bottom. It always says what to do next, for example CLICK LANDMARK 1 OF 7: ANTERIOR. When you are unsure, read it.
+
+Stopping and coming back
+• To stop, press Q (or ESC) while no label is being typed. This saves landmarks.csv, which lists every frame you have accepted. Later, run the same command again and it skips the finished frames:
+N image(s) already done - skipping them.
+
+Two things lose work, so AVOID THESE:
+• Closing the window with the X, or pressing Ctrl + C in the terminal. The program ends before landmarks.csv is written, so the frames from that session come up again next time.
+• Pressing Q before you press ENTER on a frame. The frame on screen is not saved, so finish it first.
 
