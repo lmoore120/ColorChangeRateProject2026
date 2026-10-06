@@ -1,1 +1,7 @@
+find_fish_and_landmarks.py: a faster way to landmark fish, including color standard, scale bar, label, and all 43 points
+
+Run this in Visual Studio Code. 
+
+First, begin with a folder of all of your still images (path\to\your\stills)
+
 
