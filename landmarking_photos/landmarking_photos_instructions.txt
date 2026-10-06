@@ -28,21 +28,20 @@ You need Python, VS Code and two Python packages, and you only do this once per 
     python --version
     python -c "import cv2, numpy; print('ready')"
     The second command should print ready. If it prints an error instead, the install in step 4 did not finish; run it again and read the last lines for the cause.
-    The progress-tracking scripts (autofill_video_map.py and landmark_tracker.py) need no extra packages.
 
 
 Opening VS Code and the terminal
-Every command in this guide is typed into the VS Code terminal, and it must be opened inside the files folder, the folder that contains find_fish_and_landmarks.py.
+Every command in this guide is typed into the VS Code terminal, and it must be opened inside the files folder, the folder that contains landmarking_photos.py.
     1. In VS Code choose File > Open Folder, pick the files folder, and click Select Folder. If asked whether you trust the authors, click Yes.
     2. Choose Terminal > New Terminal (or press Ctrl + backtick). A panel opens at the bottom of the window.
     3. Look at the last line in that panel. It is called the prompt and should end with files>, for example PS C:\Users\you\...\files>. That tells you the terminal is in the right folder.
-    4. Check by typing this and pressing Enter. You should see find_fish_and_landmarks.py in the list:
+    4. Check by typing this and pressing Enter. You should see landmarking_photos.py in the list:
     dir
 
 
 Running the script
   1. With the terminal open in the files folder, run this one command. Direct the first path to your own folder, and the second path (after --out) to a new folder where the landmarks will be saved. The program opens every frame that is not yet done, one after another:
-    python photo_find_fish_and_landmarks.py folder\frames --out folder\landmarks
+    python landmarking_photos.py folder\frames --out folder\landmarks
 
   2. The terminal prints a line for each frame, such as --- 3/10: <frame name> ---, and a window opens. If you cannot see the window, look for it in the Windows taskbar, because it can open behind VS Code.
 
