@@ -273,8 +273,8 @@ COLOUR_STANDARD_NAMES = ["white", "light_grey", "mid_grey", "red", "green", "blu
 # measures, it never assumes these values are correct.
 CHROMATIC_REFERENCE_BGR = {"red": (40, 40, 190), "green": (60, 160, 60), "blue": (180, 80, 40)}
 
-# The scale bar is 10 mm.
-SCALE_BAR_MM = 10
+# The scale bar is 12 mm.
+SCALE_BAR_MM = 12
 
 # Fallback for videos with no scale bar in frame: the known real-world
 # WIDTH of a single colour-standard square (the printed edge length of one
